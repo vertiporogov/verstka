@@ -361,6 +361,36 @@ class MyServer(BaseHTTPRequestHandler):
                             Машиной
                         </div>
                     </div>
+                    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Название</th>
+      <th scope="col">цена</th>
+      <th scope="col">количество</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>телефон</td>
+      <td>10000</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>ноутбук</td>
+      <td>20000</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>телевизор</td>
+      <td>50000</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
                 </div>
         </main>
 
@@ -390,7 +420,7 @@ class MyServer(BaseHTTPRequestHandler):
         query_components = parse_qs(urlparse(self.path).query)
         page_content = self.__get_html_content()
         self.send_response(200)  # Отправка кода ответа
-        self.send_header("Content-type", "application/json")  # Отправка типа данных, который будет передаваться
+        self.send_header("Content-type", "text/html") # Отправка типа данных, который будет передаваться
         self.end_headers()  # Завершение формирования заголовков ответа
         self.wfile.write(bytes(page_content, "utf-8"))  # Тело ответа
 
